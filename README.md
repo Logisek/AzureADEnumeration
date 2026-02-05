@@ -13,7 +13,7 @@ Discovers tenant information using public APIs.
 Retrieves tenant details from the azmap.dev service.
 
 ```bash
-# Replace DOMAIN with target domain (e.g., contoso.com)
+# Replace DOMAIN with target domain (e.g., example.com)
 curl -s "https://azmap.dev/api/tenant?domain=DOMAIN&extract=true"
 ```
 
@@ -135,9 +135,9 @@ dig MX DOMAIN
 Checks if a user exists by probing their OneDrive personal site URL.
 
 ```bash
-# Replace TENANT with tenant name (e.g., contoso)
+# Replace TENANT with tenant name (e.g., example)
 # Replace USERPATH with email formatted as: user_domain_com (@ and . replaced with _)
-# Example: john.doe@contoso.com becomes john_doe_contoso_com
+# Example: john.doe@example.com becomes john_doe_example_com
 
 curl -s -o /dev/null -w "%{http_code}" -I \
   "https://TENANT-my.sharepoint.com/personal/USERPATH/_layouts/15/onedrive.aspx"
@@ -148,11 +148,11 @@ curl -s -o /dev/null -w "%{http_code}" -I \
 - `401/403` = User exists, access denied
 - `404` = User does not exist
 
-### Example for user john.doe@contoso.com:
+### Example for user john.doe@example.com:
 
 ```bash
 curl -s -o /dev/null -w "%{http_code}" -I \
-  "https://contoso-my.sharepoint.com/personal/john_doe_contoso_com/_layouts/15/onedrive.aspx"
+  "https://example-my.sharepoint.com/personal/john_doe_example_com/_layouts/15/onedrive.aspx"
 ```
 
 ---
